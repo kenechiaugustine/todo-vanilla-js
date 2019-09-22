@@ -1,7 +1,7 @@
 // Javascript todo List script
 // ----------------------------
-var removeIcon = '<i class="fa fa-trash"></i>';
-var completeIcon = '<i class="fa fa-check"></i>';
+var removeIcon = "&f1f8"; //'<i class="fa fa-trash"></i>';
+var completeIcon = "f1f8"; //'<i class="fa fa-check"></i>';
 
 //store data in object
 data = localStorage.getItem("todoListFile")
