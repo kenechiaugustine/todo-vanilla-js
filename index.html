@@ -1,129 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<html>
 
-    <!-- ICONS -->
-    <!--Import Google Icon Font-->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- Bootstrap -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
-    <!-- jQuery -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Materialize CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <script
-      defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
-    ></script>
-    <!-- Resources -->
-    <!-- Page title -->
-    <title>Loto Forum</title>
-  </head>
-  <body>
-    <div class="container">
-      <h2>Welcome to Loto Kay <i class="fa fa-lock mark small"></i></h2>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-      <button id="num_gen" class="btn">Generate no</button>
+  <title>Task Manager</title>
 
-      <div class="card-panel">
-        <p>ID: <span id="numbers_id">No ID</span></p>
-        <p>Timestamp: <span id="numbers_time">No Time</span></p>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./resources/reset.css" />
+  <link rel="stylesheet" type="text/css" href="./resources/main.css" />
+  <link rel="stylesheet" href="./resources/font-awesome.css" />
 
-        <p>
-          Numbers:
+</head>
 
-          <span id="numbers_to_display">
-            Numbers to be displayed
-          </span>
-        </p>
-      </div>
-      <hr />
-      <div>
-        <h3>Results</h3>
-        <div>
-          <div class="card-panel">
-            <p>SMTH: 1</p>
-            <p>SMTH: 1</p>
-            <p>SMTH: 1</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      var twelve_generated_num = [];
-      var results = [];
+<body>
+  <div class="dateDiv">
+    Date:
+    <span id="dateItem"></span>
+  </div>
 
-      document.getElementById("num_gen").addEventListener("click", function() {
-        // Math.floor(Math.random() * 91);
-        //Loop 12 x and gen rand no and save them in the array of 12 nos...
-        for (i = 0; i <= 11; i++) {
-          //generate the rand num
-          var rand_num = Math.floor(Math.random() * 91);
-          // check for the occurance num 0 ...
-          if (rand_num === 0) {
-            rand_num = Math.floor(Math.random() * 91);
-          }
-          // check for the occurance of the rand num...
-          twelve_generated_num[i] = rand_num;
-        }
-        //Displaying the nums
-        var rand_gen_no_tag = "";
-        for (i = 0; i <= 11; i++) {
-          rand_gen_no_tag += "<span>" + twelve_generated_num[i] + "</span> ,";
-        }
-        //displaying all nos in the tag
-        document.getElementById(
-          "numbers_to_display"
-        ).innerHTML = rand_gen_no_tag;
-        //displaying the timestamp
-        var d = new Date();
-        var currentTime =
-          d.getDay() +
-          "/" +
-          d.getMonth() +
-          "/" +
-          d.getFullYear() +
-          " @ " +
-          d.getHours() +
-          ":" +
-          d.getMinutes() +
-          ":" +
-          d.getSeconds() +
-          ":" +
-          d.getMilliseconds();
-        document.getElementById("numbers_time").innerText = currentTime;
-        //displaying the ID
-        document.getElementById("numbers_id").innerText = "0183917";
-      });
+  <div class="container">
+    <h1>Task Manager</h1>
+    <p>
+      A simplified way to manager your daily events and schedules, by listing them out.
+    </p>
+    <ul class="todo" id="todo"></ul>
 
-      //   var check_occurance = function(randno) {
-      //     for (i = 0; i <= 11; i++) {
-      //       if (randno === twelve_generated_num[i]) {
-      //         randno = Math.floor(Math.random() * 91);
-      //         twelve_generated_num[i] = randno;
-      //       }
-      //     }
-      //   };
-    </script>
-  </body>
+    <div class="push"></div>
+  </div>
+
+  <footer>
+    <input type="text" placeholder="Enter an activity..." id="item" autofocus />
+    <button id="add">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+        <g>
+          <path class="fill"
+            d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z" />
+        </g>
+      </svg>
+    </button>
+  </footer>
+
+  <script src="./resources/main.js"></script>
+</body>
+
 </html>
