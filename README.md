@@ -1,2 +1,2 @@
 # todoList
-A simple task manager
+A simple task manager built with vanilla Javascript
