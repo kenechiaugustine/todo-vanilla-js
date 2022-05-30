@@ -142,5 +142,5 @@ function renderTodoList() {
 	}
 }
 
-// clear all item in Localstorage
+// clear all item in Local-storage
 // window.localStorage.removeItem("todoListFile");
